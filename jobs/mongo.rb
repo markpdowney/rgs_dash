@@ -7,7 +7,7 @@ SCHEDULER.every '15m', :first_in => 0 do |job|
 	db = client.database
 
 	post_table = client['posts']
-	post_count = post_table.count()
+	post_count = post_table.find({publish: true}).count()
 
 	user_table = client['users']
 	user_count = user_table.count()
