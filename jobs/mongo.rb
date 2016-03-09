@@ -9,9 +9,10 @@ SCHEDULER.every '15m', :first_in => 0 do |job|
 	collection = client['posts']
 
 	query = collection.count()
+	puts "MPD"
 	puts query
 
-	send_event('mongo_post_count', query)
+	#send_event('mongo_post_count', query)
 	#send_event('mongo_user_count', db[:users].count())
 end
 
