@@ -3,7 +3,7 @@ require 'mongo'
 include Mongo
 
 SCHEDULER.every '15m', :first_in => 0 do |job|
-	client = Mongo::Client.new(['127.0.0.1:27017'])
+	client = Mongo::Client.new(['127.0.0.1:27017'], :database => 'readgoodstuff')
 	db = client.database
 
 	collection = client['posts']
