@@ -3,9 +3,15 @@ require 'mongo'
 include Mongo
 
 SCHEDULER.every '15m', :first_in => 0 do |job|
-	db = Mongo::Client.new(['127.0.0.1:27017'], :database => 'readgoodstuff')
+	client = Mongo::Client.new(['127.0.0.1:27017'])
+	db = client.database
 
-	send_event('mongo_post_count', db[:posts].count())
-	send_event('mongo_user_count', db[:users].count())
+	collection = client['posts']
+
+	query = collection.count()
+	puts query
+
+	send_event('mongo_post_count', query)
+	#send_event('mongo_user_count', db[:users].count())
 end
 
