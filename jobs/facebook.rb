@@ -11,7 +11,7 @@ require 'json'
 facebook_graph_username = ENV['FACEBOOK_GRAPH_USERNAME'] || 'readgoodstuff'
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-  uri = URI.parse("https://graph.facebook.com/v2.5/1739316632952993?fields=name,likes,talking_about_count,new_like_count,posts{shares,likes}&access_token=CAACEdEose0cBAEwpAgABAmRp5ivjhpVwikwSwU2alcuCKBAMKGWGObcfIRfvzphhMeLZCVPv5gKeWlpn1dzcsF1cAvJUWjIzzZACkVbTYOGtVno7oU3n2wagjvpgsgK5c9HAvzwgDG74J13zie0Fy4DpwbzLzVDPruZBwTOpfGDHSOEcjyQFr3HdDtHZAcZAziIbWyCPYDAZDZD")
+  uri = URI.parse("https://graph.facebook.com/v2.5/1739316632952993?fields=name,likes,talking_about_count,new_like_count&access_token=CAACEdEose0cBAEwpAgABAmRp5ivjhpVwikwSwU2alcuCKBAMKGWGObcfIRfvzphhMeLZCVPv5gKeWlpn1dzcsF1cAvJUWjIzzZACkVbTYOGtVno7oU3n2wagjvpgsgK5c9HAvzwgDG74J13zie0Fy4DpwbzLzVDPruZBwTOpfGDHSOEcjyQFr3HdDtHZAcZAziIbWyCPYDAZDZD")
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
