@@ -6,3 +6,4 @@ gem 'dashing'
 gem 'twitter', '>= 5.9.0'
 
 gem 'nokogiri'
+gem 'mongo'
